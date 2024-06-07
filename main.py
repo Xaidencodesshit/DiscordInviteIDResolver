@@ -30,14 +30,17 @@ def main():
                                                                                                               
                                                                                                               {RESET}""")
     print(f"{GREEN}This program fetches the server ID from a Discord invite code.")
-    print("Please enter the code that comes after '.gg/' in the invite link.")
-    invite_code = input("Enter the Discord invite code: ")
+    
+    while True:
+        invite_code = input("Please enter the code that comes after '.gg/' in the invite link (or 'exit' to quit): ")
+        if invite_code.lower() == 'exit':
+            break
 
-    server_id = get_server_id_from_invite(invite_code)
-    if server_id:
-        print(f"{GREEN}Server ID: {server_id}{RESET}")
-    else:
-        print(f"{GREEN}Invalid invite code or unable to fetch server ID.{RESET}")
+        server_id = get_server_id_from_invite(invite_code)
+        if server_id:
+            print(f"{GREEN}Server ID: {server_id}{RESET}")
+        else:
+            print(f"{GREEN}Invalid invite code or unable to fetch server ID.{RESET}")
 
 if __name__ == "__main__":
     main()
