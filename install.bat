@@ -6,4 +6,4 @@ IF %ERRORLEVEL% NEQ 0 (
     pip install requests
 )
 
-start main.py
+python main.py
